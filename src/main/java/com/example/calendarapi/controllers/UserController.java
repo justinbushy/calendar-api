@@ -12,8 +12,8 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value = "/createuser", method = RequestMethod.PUT)
-    public User createUser(@RequestBody User user)
+    @RequestMapping(value = "/register", method = RequestMethod.PUT)
+    public User registerUser(@RequestBody User user)
     {
         try{
             userDao.save(user);
