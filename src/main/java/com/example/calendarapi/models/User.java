@@ -41,10 +41,12 @@ public class User {
         this.id = id;
     }
 
-    public User(String email, String firstName, String lastName) {
+    public User(String email, String firstName, String lastName, String userName, String password) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
     }
 
     public long getId() {
