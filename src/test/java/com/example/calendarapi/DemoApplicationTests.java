@@ -1,16 +1,39 @@
 package com.example.calendarapi;
 
+import com.example.calendarapi.controllers.UserController;
+import com.example.calendarapi.models.User;
+import com.example.calendarapi.models.UserDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@DataJpaTest
 public class DemoApplicationTests {
 
+	@Autowired
+	private UserDao userDao;
+
 	@Test
-	public void contextLoads() {
+	public void findByUserNameCorrectReturn() {
+		
+		User user = new User("jbush@gmail.com", "Jordan", "Bush", "jordanbush", "passs");
+		userDao.save(user);
+
+		User foundUser = userDao.findByUserName("jordanbush");
+
+		assertThat(foundUser.getUserName()).isEqualTo(user.getUserName());
+
+
 	}
 
 }
