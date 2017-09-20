@@ -32,8 +32,11 @@ public class UserPersistenceTests {
 		User foundUser = userDao.findByUserName("jordanbush");
 
 		assertThat(foundUser.getUserName()).isEqualTo(user.getUserName());
-
-
+		assertThat(foundUser.getEmail()).isEqualTo(user.getEmail());
+		assertThat(foundUser.getFirstName()).isEqualTo(user.getFirstName());
+		assertThat(foundUser.getLastName()).isEqualTo(user.getLastName());
+		assertThat(foundUser.getPassword()).isEqualTo(user.getPassword());
+		assertThat(foundUser.getId()).isEqualTo(user.getId());
 	}
 
 }
