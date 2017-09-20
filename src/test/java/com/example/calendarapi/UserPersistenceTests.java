@@ -18,14 +18,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class DemoApplicationTests {
+public class UserPersistenceTests {
 
 	@Autowired
 	private UserDao userDao;
 
 	@Test
 	public void findByUserNameCorrectReturn() {
-		
+
 		User user = new User("jbush@gmail.com", "Jordan", "Bush", "jordanbush", "passs");
 		userDao.save(user);
 
