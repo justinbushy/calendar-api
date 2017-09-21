@@ -1,9 +1,8 @@
-package com.example.calendarapi.controllers;
+package com.justinbushy.calendarapi.controllers;
 
-import com.example.calendarapi.models.User;
-import com.example.calendarapi.models.UserDao;
+import com.justinbushy.calendarapi.models.User;
+import com.justinbushy.calendarapi.models.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

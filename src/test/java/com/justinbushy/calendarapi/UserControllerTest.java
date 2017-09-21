@@ -1,8 +1,8 @@
-package com.example.calendarapi;
+package com.justinbushy.calendarapi;
 
-import com.example.calendarapi.controllers.UserController;
-import com.example.calendarapi.models.User;
-import com.example.calendarapi.models.UserDao;
+import com.justinbushy.calendarapi.controllers.UserController;
+import com.justinbushy.calendarapi.models.User;
+import com.justinbushy.calendarapi.models.UserDao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,11 +12,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 import static org.hamcrest.Matchers.*;
 
@@ -34,7 +32,7 @@ public class UserControllerTest {
     @Test
     public void correctJSONOnRegister() throws Exception {
 
-		User user = new User("jbush@gmail.com", "Jordan", "Bush", "jordanbush", "passs");
+		User user = new User("jsmith@gmail.com", "John", "Smith", "johnsmith", "passs");
 
 
         ObjectMapper mapper = new ObjectMapper();
@@ -43,13 +41,13 @@ public class UserControllerTest {
 		mvc.perform(put("/register")
                 .contentType(MediaType.APPLICATION_JSON).content(json))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstName", is("Jordan")))
-                .andExpect(jsonPath("$.lastName", is("Bush")))
-                .andExpect(jsonPath("$.email", is("jbush@gmail.com")))
-                .andExpect(jsonPath("$.userName", is("jordanbush")));
+                .andExpect(jsonPath("$.firstName", is("John")))
+                .andExpect(jsonPath("$.lastName", is("Smith")))
+                .andExpect(jsonPath("$.email", is("jsmith@gmail.com")))
+                .andExpect(jsonPath("$.userName", is("johnsmith")));
 
 
-		given(userDao.findByFirstNameAndLastName("Jordan", "Bush")).willReturn(user);
+		given(userDao.findByFirstNameAndLastName("John", "Smith")).willReturn(user);
     }
 
     @Test

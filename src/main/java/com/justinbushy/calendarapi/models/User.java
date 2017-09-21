@@ -5,7 +5,7 @@
  * JPA.
  */
 
-package com.example.calendarapi.models;
+package com.justinbushy.calendarapi.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
